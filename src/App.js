@@ -1,5 +1,6 @@
 import './App.css';
 
+import Transactions from './components/transactions.jsx';
 import Accounts from './components/accounts.jsx';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Accounts />
       <br/>
       <h3>Transactions</h3>
+      <Transactions />
     </div>
   );
 }
