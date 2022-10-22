@@ -1,20 +1,18 @@
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 import './App.css';
 
-import Transactions from './components/transactions.jsx';
-import Accounts from './components/accounts.jsx';
+import Home from './components/home.jsx';
+import TransactionForm from './components/transaction_form';
 
 function App() {
   return (
-    <div>
-      <h2>Simple Accounting App</h2>
-      <h2>Current user: Astérix</h2>
-      <br/>
-      <h3>Accounts</h3>
-      <Accounts />
-      <br/>
-      <h3>Transactions</h3>
-      <Transactions />
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/transaction/new' element={<TransactionForm />} />
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
