@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# A GraphQL-Rail-React simple accounting app - front side
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project aims at building a simple GraphQL API with RubyOnRails. :smile:
 
-## Available Scripts
+Here was the brief:
+- You are working on a minimalist accounting software. Your task is to write a small web application that exposes a GraphQL API and allows users to interact with different entities.
+- Key features to implement:
+  - The user must be able to create a new accounting transaction and to see all the existing ones
+  - At any time, we should be able to know what is the current balance of any account
+- Characteristics of an accounting transaction: Debit Account, Credit Account, Date, Amount
 
-In the project directory, you can run:
 
-### `npm start`
+## Stack and requirements :brain:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React: Frond-end framework
+- Apollo: State management framework
+- Ant Design: CSS framework
 
-### `npm test`
+### Requirements 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js: v19.0.0
 
-### `npm run build`
+## How to launch app :mechanical_arm:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Clone project
+- Go to project folder: `cd simple_accounting_app_front/`
+- Launch app: `npm start`
+- Open browser and go to: `http://localhost:3000/`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Preview :film_strip:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Link to preview accounting app](https://drive.google.com/file/d/1sfadHznoYj2BalFtBVITCcPzxfGB5piW/view?usp=sharing)
