@@ -1,7 +1,11 @@
 import {useNavigate} from 'react-router-dom';
+import { Layout, Button, PageHeader } from 'antd';
+import { Col, Row } from 'antd';
 
 import Transactions from './transactions.jsx';
 import Accounts from './accounts.jsx';
+
+const { Content } = Layout;
 
 export default function Home() {
   let navigate = useNavigate(); 
@@ -9,19 +13,42 @@ export default function Home() {
     navigate(`/transaction/new`);
   };
   return (
-    <div>
-      <h2>Simple Accounting App</h2>
-      <h2>Current user: Astérix</h2>
+    <Layout>
+      <PageHeader
+        className='site-page-header'
+        title='Simple Accounting App'
+        subTitle='Current user: Astérix'
+      />
       <br/>
-      <h3>Accounts</h3>
-      <Accounts />
-      <br/>
-      <h3>Transactions</h3>
-      <Transactions />
-      <br/>
-      <button onClick={navigateToTransactionForm}>
-        New transaction
-      </button>
-    </div>
+      <Content>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={22}><h3>Accounts</h3></Col>
+        </Row>
+        <br/>
+        <Row>
+          <Col span={1}></Col>
+          <Col span={12}><Accounts /></Col>
+          <br/>
+        </Row>
+        <br/>
+        <br/>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={7}><h3>Transactions</h3></Col>
+          <Col span={2}>
+            <Button type='primary' onClick={navigateToTransactionForm}>
+              New transaction
+            </Button>
+          </Col>
+        </Row>
+        <br/>
+        <Row>
+          <Col span={1}></Col>
+          <Col span={12}><Transactions /></Col>
+          <br/>
+        </Row>
+      </Content>
+    </Layout>
   );
 }
