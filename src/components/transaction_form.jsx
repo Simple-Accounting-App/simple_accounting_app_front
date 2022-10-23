@@ -2,8 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 
+import { Layout, Button, PageHeader, Col, Row, Space, Form } from 'antd';
+
 import TransactionFormErrors from './transaction_form_errors.jsx';
 import TransactionFormAccountInput from './transaction_form_account_input.jsx';
+
+const { Content } = Layout;
 
 const CREATE_TRANSACTION_MUTATION = gql`
   mutation CreateTransaction(
@@ -39,7 +43,6 @@ export default function TransactionForm() {
   });
 
   function handleChange(evt) {
-    console.log(evt);
     const value = evt.target.value;
     setFormState({
       ...formState,
@@ -48,6 +51,10 @@ export default function TransactionForm() {
   }
 
   // Call to GraphQL Mutation to create a transaction
+  const onSubmit = (e) => {
+    createTransaction();
+  }
+
   const [createTransaction, { data, loading, error }] = useMutation(CREATE_TRANSACTION_MUTATION, {
     variables: {
       creditAccountId: formState.creditAccountId,
@@ -63,46 +70,72 @@ export default function TransactionForm() {
   if (loading) return 'Submitting...';
   
   return ( 
-    <div>
-      <h2>Create a new transaction</h2>
-      <TransactionFormErrors graphQLErrors={error} data={data} />
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          createTransaction();
-        }}
-      >
-        <div>
-          <TransactionFormAccountInput 
-            name='debitAccountId' 
-            value={formState.debitAccountId} 
-            handleChange={handleChange}
-          />
-          <TransactionFormAccountInput 
-            name='creditAccountId' 
-            value={formState.creditAccountId} 
-            handleChange={handleChange}
-          />
-          <input
-            name='amount'
-            value={formState.amount}
-            onChange={handleChange}
-            type='text'
-            placeholder='Enter a positive amount'
-          />
-          <input
-            name='transferDate'
-            value={formState.transferDate}
-            onChange={handleChange}
-            type='date'
-            placeholder='Choose transfer date'
-          />
-        </div>
-        <button type='submit'>Submit</button>
-      </form>
-      <button onClick={navigateToHome}>
-        Cancel
-      </button>
-    </div>
+    <Layout>
+      <PageHeader
+        className='site-page-header'
+        title='Create a new transaction'
+        subTitle='Current user: Astérix'
+      />
+      <Content>
+        <Row>
+          <Col span={1}></Col>
+          <Col span={20}><TransactionFormErrors graphQLErrors={error} data={data} /></Col>
+        </Row>
+        <br/>
+        <Form
+          onFinish={onSubmit}
+        >
+          <Row>
+            <Col span={1}></Col>
+            <Col span={6}>
+              <Row>
+                <Space>
+                  <TransactionFormAccountInput 
+                    name='debitAccountId' 
+                    value={formState.debitAccountId} 
+                    handleChange={handleChange}
+                  />
+                  <TransactionFormAccountInput 
+                    name='creditAccountId' 
+                    value={formState.creditAccountId} 
+                    handleChange={handleChange}
+                  />
+                </Space>
+              </Row>
+              <br/>
+              <Row>
+                <Space>
+                  <input
+                    name='amount'
+                    value={formState.amount}
+                    onChange={handleChange}
+                    type='text'
+                    placeholder='Enter a positive amount'
+                  />
+                  <input
+                    name='transferDate'
+                    value={formState.transferDate}
+                    onChange={handleChange}
+                    type='date'
+                    placeholder='Choose transfer date'
+                  />
+                </Space>
+              </Row>
+            </Col>
+          </Row>
+          <br/>
+          <Row>
+            <Col span={1}></Col>
+            <Col span={3}><Button type='primary' htmlType='submit'>Submit</Button></Col>
+            <Col span={3}>
+              <Button onClick={navigateToHome}>
+                Cancel
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+        <br/>
+      </Content>
+    </Layout>
   );
 }
